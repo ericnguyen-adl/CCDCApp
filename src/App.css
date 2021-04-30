@@ -1,0 +1,172 @@
+.headerStyle {
+  background-color: white;
+  display: flex;  
+  width: 99%;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 10px;
+}
+
+.updateCalendarLabels {
+  margin-left: 0.5em;
+}
+
+.tabStyle {
+  background-color: lightgreen;
+  padding-bottom: -5px;
+  width: 99%;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.tabContainer {
+  background-color: white;
+  margin-top: -10px;
+  padding-top: 40px;
+
+}
+
+
+
+.tab-content {
+  font-weight: bold;
+}
+
+.tab-header {
+  font-weight: bold;
+}
+.pageTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.infoText {
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+
+.tableStyle {
+  width: 30%;
+  height: 80px;
+  border: 1px solid black;
+  background-color: pink;
+}
+
+#calendar {
+  width: 200px;
+  margin-left: 5px;
+}
+
+
+
+#inputText {
+  width: 193px;
+  margin-left: 5px;
+}
+
+#datePicker {
+  width: 193px;
+  margin-left: 5px;
+}
+.rowContainer {
+  line-height: 30px;
+}
+#calculateButton, #updateButton, #cancelButton, #confirmButton, #deleteButton, #cancelDeleteButton {
+  margin-left: 100px;
+  margin-right: -50px;
+  margin-top: 30px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: lightgreen;
+}
+
+#myLoginButton {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+#myLogoutButton {
+  margin-top: 10px;
+}
+
+.removeDateTable, .selectDateInWeekTable {
+  margin-top: 10px;
+  margin-left: 5px;
+  background-color: lightyellow;
+  border: 1px solid black;
+}
+
+.removeDateTableHeader {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.removeDateTableRow {
+  padding-right: 10px;
+  padding-left: 10px;
+  border: 1px solid black;
+}
+
+#removeDateTableContainer {
+  padding-bottom: 20px;
+}
+
+#removeNWdaysTitle {
+  vertical-align: top ;
+}
+
+/* #deletePageButtons {
+  margin-top: -30px;
+} */
+
+#nonworkingdaysLabel {
+  vertical-align: top;
+}
+
+#outputLabel {
+  padding-top: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: blue;
+  display: none;
+}
+
+#logo {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 70px;
+  width: 70px;
+}
+
+.myHeader {
+  align-content: center;
+  text-align: center;
+
+}
+
+.headerTitle {
+  justify-content: center;
+  padding-top: 20px;
+  padding-left: 10px;
+  color: red;
+  font-weight: bold;
+  font-size: larger;
+}
+
+#welcomeMessage {
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+
+
