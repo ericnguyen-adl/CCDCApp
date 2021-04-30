@@ -4,9 +4,11 @@ import appConfig from './../config';
 
 
 
-function CreateCalendar() {
+function CreateCalendar(props) {
 
   const baseURL = appConfig.BaseURL; 
+
+  const username = props.username;
 
   const [calendarCode, setCalendarCode] = useState(""); 
   const [calendarName, setCalendarName] = useState(""); 
@@ -22,7 +24,7 @@ function CreateCalendar() {
     } else {
       var request = new XMLHttpRequest();
           request.open('POST', baseURL + 'createCalendar' + '?calendarCode=' + calendarCode
-            + '&calendarName=' + calendarName + '&place=' + place + '&description=' + description, true)
+            + '&calendarName=' + calendarName + '&place=' + place + '&description=' + description + '&username=' + username, true)
           request.onload = function () {
             var data = JSON.parse(this.response);
             if (data != null) {
