@@ -17,7 +17,6 @@ function App() {
   const [loginModalVisible, setLoginModalVisible] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginDisable, setLoginDisable] = useState(false); 
   const baseURL = appConfig.BaseURL;
 
   const [displayWelcomeCondition, setDisplayWelcomeCondition] = useState(false);
@@ -25,7 +24,6 @@ function App() {
 
   const displayLoginModal = () => {
     setLoginModalVisible(true);
-    setLoginDisable(true); 
   }
 
   const login = () => {
@@ -52,26 +50,27 @@ function App() {
   const logout = () => {
     setUsername("");
     setDisplayWelcomeCondition(false);
-    setLoginDisable(false); 
   }
 
   const close = () => {
     setLoginModalVisible(false);
-    setLoginDisable(false); 
   }
   return (
     <>
       <div className="with-react-tabs">
         <div className="myHeader">
-          <div className="headerTitle">Customised Commit Date Calculator</div>
-          <hr/>
           <div className="headerStyle">
             <div>
-              <div><img id="logo" src={logo} /></div>
+            <div className="headerStyle">
+                <img id="logo" src={logo}/>
+                <div className="headerTitle">Customised Commit Date Calculator</div>
+             </div>
             </div>
+            
             <div>
-              
-              <Button disabled={loginDisable} id="myLoginButton" onClick={() => displayLoginModal()}>Log in</Button>
+            <div className="headerLoginButtonStyle">
+
+              <Button id="myLoginButton" onClick={() => displayLoginModal()}>Log In</Button>
               <Button id="myLogoutButton" onClick={() => logout()}>Log Out</Button>
               {
                 (displayWelcomeCondition)
@@ -80,6 +79,7 @@ function App() {
                   :
                   <p></p>
               }
+              </div>
             </div>
           </div>
 
@@ -140,11 +140,11 @@ function App() {
           <h6>Username:</h6>
           <input id="inputUsernameText" type="text" onChange={e => setUsername(e.target.value)}></input>
           <h6>Password:</h6>
-          <input id="inputPasswordText" type="password" onChange={e => setPassword(e.target.value)}></input>
+          <input id="inputPasswordText" type="text" onChange={e => setPassword(e.target.value)}></input>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => login()}>Log in</Button>
-          <Button onClick={() => close()}>Close</Button>
+          <Button id="popUpLoginButton" onClick={() => login()}>Log In</Button>
+          <Button id="popupCloseButton" onClick={() => close()}>Close</Button>
         </Modal.Footer>
       </Modal>
     </>

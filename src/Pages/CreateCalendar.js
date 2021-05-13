@@ -4,34 +4,32 @@ import appConfig from './../config';
 
 
 
-function CreateCalendar(props) {
+function CreateCalendar() {
 
-  const baseURL = appConfig.BaseURL; 
+  const baseURL = appConfig.BaseURL;
 
-  const username = props.username;
-
-  const [calendarCode, setCalendarCode] = useState(""); 
-  const [calendarName, setCalendarName] = useState(""); 
-  const [place, setPlace] = useState(""); 
-  const [description, SetDescription] = useState(""); 
+  const [calendarCode, setCalendarCode] = useState("");
+  const [calendarName, setCalendarName] = useState("");
+  const [place, setPlace] = useState("");
+  const [description, SetDescription] = useState("");
 
 
   const createCalendar = () => {
-    console.log(calendarCode); 
-    console.log(calendarName); 
-    if(calendarCode == "" || calendarName == "" || description == "") {
-      alert("Please enter calendar code, name and description"); 
+    console.log(calendarCode);
+    console.log(calendarName);
+    if (calendarCode == "" || calendarName == "" || description == "") {
+      alert("Please enter calendar code, name and description");
     } else {
       var request = new XMLHttpRequest();
-          request.open('POST', baseURL + 'createCalendar' + '?calendarCode=' + calendarCode
-            + '&calendarName=' + calendarName + '&place=' + place + '&description=' + description + '&username=' + username, true)
-          request.onload = function () {
-            var data = JSON.parse(this.response);
-            if (data != null) {
-              alert("New Calendar " + data.calendarName + " has been added"); 
-            }
-          }
-          request.send();
+      request.open('POST', baseURL + 'createCalendar' + '?calendarCode=' + calendarCode
+        + '&calendarName=' + calendarName + '&place=' + place + '&description=' + description, true)
+      request.onload = function () {
+        var data = JSON.parse(this.response);
+        if (data != null) {
+          alert("New Calendar " + data.calendarName + " has been added");
+        }
+      }
+      request.send();
     }
   }
 
@@ -42,21 +40,21 @@ function CreateCalendar(props) {
       <table class="tableStyle">
 
         <tr class="rowContainer">
-          <td class="removeDateTableRow"><label>Calendar Code:</label></td>
+          <td class="removeDateTableRow"><label class="updateCalendarLabels">Calendar Code:</label></td>
           <td class="removeDateTableRow"><input id="inputCalendarCodeText" type="text" onChange={e => setCalendarCode(e.target.value)}></input></td>
         </tr>
         <tr class="rowContainer">
-          <td class="removeDateTableRow"><label>Calendar Name:</label></td>
+          <td class="removeDateTableRow"><label class="updateCalendarLabels">Calendar Name:</label></td>
           <td class="removeDateTableRow"><input id="inputCalendarNameText" type="text" onChange={e => setCalendarName(e.target.value)}></input></td>
         </tr>
 
         <tr class="rowContainer">
-          <td class="removeDateTableRow"><label>Place:</label></td>
+          <td class="removeDateTableRow"><label class="updateCalendarLabels">Place:</label></td>
           <td class="removeDateTableRow"><input id="inputPlaceText" type="text" onChange={e => setPlace(e.target.value)}></input></td>
         </tr>
 
         <tr class="rowContainer">
-          <td class="removeDateTableRow"><label>Description:</label></td>
+          <td class="removeDateTableRow"><label class="updateCalendarLabels">Description:</label></td>
           <td class="removeDateTableRow"><input id="inputDescriptionText" type="text" onChange={e => SetDescription(e.target.value)}></input></td>
         </tr>
 
@@ -118,9 +116,9 @@ function CreateCalendar(props) {
       </table>
 
 
-{/* Does the save button, commit changes to database, 
+      {/* Does the save button, commit changes to database, 
 or are the changes committed when using the add / remove buttons above? */}
-      <input id="updateButton" type="button" value="Save" onClick = {()=>createCalendar()}></input>
+      <input id="updateButton" type="button" value="Save" onClick={() => createCalendar()}></input>
       {/* <input id="cancelButton" type="button" value="Cancel"></input> */}
     </div>
 

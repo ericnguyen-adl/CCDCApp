@@ -1,42 +1,65 @@
 .headerStyle {
-  background-color: white;
-  display: flex;  
-  width: 99%;
+  background-color: #2B579A;
+  display: flex;
+  /* width: 99%; */
   justify-content: space-between;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: 10px;
+  padding-top: 0.3em;
+  padding-bottom: 0.4em;
+  /* margin-left: 10px; */
+}
+
+
+.headerLoginButtonStyle{
+  background-color: #2B579A;
+  display: flex;
+  /* width: 99%; */
+  justify-content: space-between;
+  padding-top: 1.5em;
+  padding-bottom: 1em;
+  /* margin-left: 10px; */
 }
 
 .updateCalendarLabels {
   margin-left: 0.5em;
+  font-weight: bold;
 }
 
 .tabStyle {
-  background-color: lightgreen;
+  background-color: #366EC2;
   padding-bottom: -5px;
-  width: 99%;
-  margin-left: 10px;
-  margin-right: 10px;
-
+  /* width: 99%; */
+  /* margin-left: 10px;
+margin-right: 10px; */
 }
 
 .tabContainer {
   background-color: white;
   margin-top: -10px;
   padding-top: 40px;
+  padding-left: 10px;
+}
 
+.react-tabs__tab {
+  color: white;
+  margin-left: 0.4em;
 }
 
 
+/* .tab-content may not be needed */
 
 .tab-content {
   font-weight: bold;
+  color: white;
 }
+
+
+/* .tab-header may not be needed */
 
 .tab-header {
   font-weight: bold;
+  color: white;
 }
+
 .pageTitle {
   font-size: 18px;
   font-weight: bold;
@@ -48,12 +71,11 @@
   margin-bottom: 30px;
 }
 
-
 .tableStyle {
   width: 30%;
   height: 80px;
-  border: 1px solid black;
-  background-color: pink;
+  border: 0px;
+  background-color: white;
 }
 
 #calendar {
@@ -61,59 +83,116 @@
   margin-left: 5px;
 }
 
-
-
 #inputText {
   width: 193px;
   margin-left: 5px;
 }
 
 #datePicker {
-  width: 193px;
-  margin-left: 5px;
+  width: 184px;
 }
+
 .rowContainer {
   line-height: 30px;
 }
-#calculateButton, #updateButton, #cancelButton, #confirmButton, #deleteButton, #cancelDeleteButton {
+
+#calculateButton,
+#updateButton,
+#cancelButton,
+#confirmButton,
+#deleteButton,
+#cancelDeleteButton,
+#addNonWorkingdayButton {
   margin-left: 100px;
   margin-right: -50px;
-  margin-top: 30px;
+  margin-top: 5px;
   height: 30px;
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
   padding-left: 20px;
   padding-right: 20px;
-  background-color: lightgreen;
+  border: 0px;
+  background-color: #124078;
+  color: white;
+}
+
+#calculateButton:hover,
+#updateButton:hover,
+#cancelButton:hover,
+#confirmButton:hover,
+#deleteButton:hover,
+#cancelDeleteButton:hover,
+#addNonWorkingdayButton:hover {
+  background-color: #002050;
 }
 
 #myLoginButton {
   margin-top: 10px;
   margin-right: 20px;
+  background-color: #124078;
+  border: 0px;
 }
 
-#myLogoutButton {
+#popUpLoginButton {
   margin-top: 10px;
+  margin-right: 20px;
+  background-color: #366EC2;
+  border: 0px;
 }
 
-.removeDateTable, .selectDateInWeekTable {
+#popUpLoginButton:hover {
+  background-color: #124078;
+}
+
+#myLoginButton:hover {
+  background-color: #002050;
+}
+
+#myLogoutButton,
+#popupCloseButton {
+  margin-top: 10px;
+  margin-right: 20px;
+  background-color: #124078;
+  border: 0px;
+}
+
+#myLogoutButton:hover,
+#popupCloseButton:hover {
+  background-color: #002050;
+}
+
+#inputUsernameText {
+  margin-bottom: 1em;
+  margin-top: -0.5em;
+}
+
+#inputPasswordText {
+  margin-bottom: 0.5em;
+  margin-top: -0.5em;
+}
+
+.removeDateTable,
+.selectDateInWeekTable {
   margin-top: 10px;
   margin-left: 5px;
-  background-color: lightyellow;
-  border: 1px solid black;
+  background-color: white;
+  margin-bottom: 10px;
+  /* border: 1px solid black; */
 }
 
 .removeDateTableHeader {
   padding-right: 10px;
   padding-left: 10px;
   font-weight: bold;
-  border: 1px solid black;
+  margin-bottom: 10px;
+  /* border: 1px solid black; */
 }
 
 .removeDateTableRow {
   padding-right: 10px;
   padding-left: 10px;
-  border: 1px solid black;
+  padding-bottom: 10px;
+  /* border: 1px solid black; */
 }
 
 #removeDateTableContainer {
@@ -121,11 +200,13 @@
 }
 
 #removeNWdaysTitle {
-  vertical-align: top ;
+  vertical-align: top;
+  padding-top: 1.3em;
 }
 
+
 /* #deletePageButtons {
-  margin-top: -30px;
+margin-top: -30px;
 } */
 
 #nonworkingdaysLabel {
@@ -149,17 +230,17 @@
 
 .myHeader {
   align-content: center;
-  text-align: center;
-
+  text-align: left;
 }
 
 .headerTitle {
   justify-content: center;
-  padding-top: 20px;
-  padding-left: 10px;
-  color: red;
+  margin-top: 30px;
+  margin-left: 15px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: x-large;
+  font-size: 1.3em;
 }
 
 #welcomeMessage {
@@ -167,6 +248,3 @@
   font-style: italic;
   font-weight: bold;
 }
-
-
-

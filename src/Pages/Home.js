@@ -5,23 +5,23 @@ import appConfig from './../config';
 function Home(props) {
 
 
-  const username = props.username; 
+  const username = props.username;
   const [calendarList, setCalendarList] = useState([]);
   const [leadTimeInDays, setLeadTimeIndays] = useState(0);
-  const [currentCalendarCode, setCurrentCalendarCode] = useState(""); 
+  const [currentCalendarCode, setCurrentCalendarCode] = useState("");
   const [excludeWeekendOption, setExcludeWeekendOption] = useState(false);
-  const [excludeHolidayOption, setExcludeHolidayOption] = useState(false);  
-  
+  const [excludeHolidayOption, setExcludeHolidayOption] = useState(false);
+
 
   const [newDate, setNewDate] = useState("");
 
   const baseURL = appConfig.BaseURL;
-  const currentDate = new Date().toISOString().slice(0,10); 
+  const currentDate = new Date().toISOString().slice(0, 10);
 
   const calculateDate = () => {
-    if(currentCalendarCode == "Select Calendar" || currentCalendarCode == "") {
-      document.getElementById("outputLabel").style.display = "none"; 
-      alert("Please select a calendar to calculate"); 
+    if (currentCalendarCode == "Select Calendar" || currentCalendarCode == "") {
+      document.getElementById("outputLabel").style.display = "none";
+      alert("Please select a calendar to calculate");
     } else {
       if (excludeWeekendOption) {
         if (!excludeHolidayOption) {
@@ -34,11 +34,11 @@ function Home(props) {
             var data = JSON.parse(this.response);
             if (data != null) {
               console.log("New date = " + data);
-              setNewDate(data); 
+              setNewDate(data);
             }
           }
           request.send();
-          document.getElementById("outputLabel").style.display = "block"; 
+          document.getElementById("outputLabel").style.display = "block";
         }
       } else {
         // Not exclude anthing
@@ -46,7 +46,7 @@ function Home(props) {
       }
 
     }
-    
+
   }
 
   const fetchNewDate = (calculatedMethod) => {
@@ -57,11 +57,11 @@ function Home(props) {
       var data = JSON.parse(this.response);
       if (data != null) {
         console.log("New date = " + data);
-        setNewDate(data); 
+        setNewDate(data);
       }
     }
     request.send();
-    document.getElementById("outputLabel").style.display = "block"; 
+    document.getElementById("outputLabel").style.display = "block";
   }
 
   useEffect(() => {
@@ -94,9 +94,9 @@ function Home(props) {
       <div class="infoText">Calculate the expected commit date based on the lead time in days</div>
       <table class="tableStyle">
         <tr class="rowContainer">
-          <td><label>Select a calendar to use:</label></td>
+          <td><label class="updateCalendarLabels">Select a calendar to use:</label></td>
           <td>
-            <select name="calendar" id="calendar" onChange = {e => setCurrentCalendarCode(e.target.value)}>
+            <select name="calendar" id="calendar" onChange={e => setCurrentCalendarCode(e.target.value)}>
               <option>Select Calendar</option>
               {
                 calendarList.map((option, index) => (
@@ -108,7 +108,7 @@ function Home(props) {
         </tr>
         <tr class="rowContainer">
           <td>
-            <label>Enter the lead time in days: </label>
+            <label class="updateCalendarLabels">Enter the lead time in days: </label>
           </td>
           <td>
             <input id="inputText" type="text" onChange={e => setLeadTimeIndays(e.target.value)}></input>
@@ -116,7 +116,7 @@ function Home(props) {
         </tr>
         <tr class="rowContainer">
           <td>
-            <label>Exclude Weekend in Calculation </label>
+            <label class="updateCalendarLabels">Exclude Weekend in Calculation </label>
           </td>
           <td>
             <input type="checkbox" onClick={() => changeExcludeWeekendOption()} ></input>
@@ -124,15 +124,15 @@ function Home(props) {
         </tr>
         <tr class="rowContainer">
           <td>
-            <label>Exclude Holiday in Calculation </label>
+            <label class="updateCalendarLabels">Exclude Holiday in Calculation </label>
           </td>
           <td>
-            <input type="checkbox" disabled = {!excludeWeekendOption} onClick={() => changeExcludeHolidayOption()}></input>
+            <input type="checkbox" disabled={!excludeWeekendOption} onClick={() => changeExcludeHolidayOption()}></input>
           </td>
         </tr>
       </table>
       <input id="calculateButton" type="button" value="Calculate commit date" onClick={() => calculateDate()}></input>
-      <div id = "outputLabel">
+      <div id="outputLabel">
         <label> The New Commit Date based on above setting and calendar is {newDate} </label>
       </div>
     </div>
